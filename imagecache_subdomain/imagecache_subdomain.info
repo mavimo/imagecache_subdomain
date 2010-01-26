@@ -1,0 +1,7 @@
+; $Id$
+name = Imagecache subdomain
+description = Allow admin to setup some subdomain to serve image
+package = ImageCache
+dependencies[] = imageapi
+dependencies[] = imagecache
+core = 6.x
