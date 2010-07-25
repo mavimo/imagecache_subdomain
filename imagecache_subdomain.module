@@ -185,7 +185,7 @@ function imagecache_subdomain_config_form_submit($form, &$form_state) {
  * @return
  *   Domain do add into image absolute path.
  */
-function _imagecache_get_subdomain($file_name = NULL) {
+function _imagecache_subdomain_get($file_name = NULL) {
   // Return empty if subdomain is not enabled
   if (!variable_get('imagecache_subdomain_enable_global', FALSE) || is_null($file_name)) {
     return $GLOBALS['base_url'];
@@ -281,7 +281,7 @@ function imagecache_subdomain_create_url($presetname, $filepath, $bypass_browser
   $args = array('absolute' => TRUE, 'query' => empty($bypass_browser_cache) ? NULL : time());
   switch (variable_get('file_downloads', FILE_DOWNLOADS_PUBLIC)) {
     case FILE_DOWNLOADS_PUBLIC:
-      return url(_imagecache_get_subdomain($filepath) . '/' . file_directory_path() .'/imagecache/'. $presetname .'/'. $path, $args);
+      return url(_imagecache_subdomain_get($filepath) . '/' . file_directory_path() .'/imagecache/'. $presetname .'/'. $path, $args);
     case FILE_DOWNLOADS_PRIVATE:
       return url('system/files/imagecache/'. $presetname .'/'. $path, $args);
   }
