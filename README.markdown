@@ -19,11 +19,14 @@ your browser can dowload much file together and complete page loading
 faster then only one domain.
 
 You can find more info on:
-  http://code.google.com/intl/it-IT/speed/page-speed/docs/rtt.html#ParallelizeDownloads 
-  http://developer.yahoo.com/performance/rules.html#split 
+
+  <http://code.google.com/intl/it-IT/speed/page-speed/docs/rtt.html#ParallelizeDownloads>
+
+  <http://developer.yahoo.com/performance/rules.html#split>
 
 Mantainer
 ---------
 This module is develop and mantain from Marco Vito Moscaritolo (aka
 mavimo). Please report bug, feature request or any other issue using
-http://github.com/mavimo/imagecache_subdomain/issues
+
+  <http://github.com/mavimo/imagecache_subdomain/issues>
