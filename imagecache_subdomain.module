@@ -109,7 +109,7 @@ function theme_imagecache_subdomain_config($form) {
   $header = array(t('Enable'), t('Subdomain'));
   $rows   = array();
 
-  for ($i = 0; $i < variable_set('imagecache_subdomain_number', 3); $i++) {
+  for ($i = 0; $i < variable_get('imagecache_subdomain_number', 3); $i++) {
     $rows[] = array(
       drupal_render($form['enable_' . $i]),
       drupal_render($form['uri_'    . $i]),
@@ -212,7 +212,7 @@ function _imagecache_subdomain_get($file_name = NULL) {
   $subdomain = floor(($num_subdomain + 1) * $char_key[$first_char] / strlen($char_list));
 
   // Return correct subdomain
-  return $config[$subdomain]['uri'];
+  return $config[$subdomain - 1]['uri'];
 }
 
 /**
