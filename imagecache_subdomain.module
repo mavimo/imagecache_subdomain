@@ -98,9 +98,9 @@ function imagecache_subdomain_config_form() {
 /**
  * Themize form to setup subdomain.
  *
- * param array $form
+ * @param array $form
  *   Form to theme
- * return string
+ * @return string
  *   Themed form
  */
 function theme_imagecache_subdomain_config($form) {
@@ -173,7 +173,8 @@ function imagecache_subdomain_config_form_submit($form, &$form_state) {
 }
 
 
-/** Return domain to add to image path.
+/**
+ * Return domain to add to image path.
  *
  * Generate domain to add to image to generate complete URL.
  * This function use first letter of name to redirect the same image into
@@ -181,7 +182,6 @@ function imagecache_subdomain_config_form_submit($form, &$form_state) {
  *
  * @param $file_name
  *   Path and name of image.
- *
  * @return
  *   Domain do add into image absolute path.
  */
