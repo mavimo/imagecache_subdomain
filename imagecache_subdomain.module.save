@@ -98,9 +98,9 @@ function imagecache_subdomain_config_form() {
 /**
  * Themize form to setup subdomain.
  *
- * @param array $form
+ * param array $form
  *   Form to theme
- * @return string
+ * return string
  *   Themed form
  */
 function theme_imagecache_subdomain_config($form) {
@@ -132,9 +132,8 @@ function imagecache_subdomain_config_form_validate($form, &$form_state) {
       // Validate URI for subdomain
       if ($form_state['values']['enable_' . $i]) {
         $uri = $form_state['values']['uri_'    . $i];
-        if (!valid_url($uri, TRUE)) {
-          $msg = t("Is not a valid URI. Please include http:// prefix, and don't add tralling slash. E.g.: !uri_example", array('!uri_example' => 'http://image.mysite.tld'));
-          form_set_error('uri_'    . $i, $msg);
+        if (!preg_match("/^http(s)?:\/\/([a-z0-9][-.a-z0-9]+)((\.[a-z]{2,4}))$/", $uri)) {
+          form_set_error('uri_'    . $i, t("Is not a valid URI. Please include http:// prefix, and don't add tralling slash. E.g. : http://image.mysite.tdl"));
         }
       }
 
@@ -174,8 +173,7 @@ function imagecache_subdomain_config_form_submit($form, &$form_state) {
 }
 
 
-/**
- * Return domain to add to image path.
+/** Return domain to add to image path.
  *
  * Generate domain to add to image to generate complete URL.
  * This function use first letter of name to redirect the same image into
@@ -183,14 +181,15 @@ function imagecache_subdomain_config_form_submit($form, &$form_state) {
  *
  * @param $file_name
  *   Path and name of image.
+ *
  * @return
  *   Domain do add into image absolute path.
  */
 function _imagecache_subdomain_get($file_name = NULL) {
-  global $base_url;
   // Return empty if subdomain is not enabled
   if (!variable_get('imagecache_subdomain_enable_global', FALSE) || is_null($file_name)) {
-    return $base_url;
+
+    return $GLOBALS['base_url'];
   }
 
   // Extract config
