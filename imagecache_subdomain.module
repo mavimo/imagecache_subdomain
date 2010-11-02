@@ -259,7 +259,7 @@ function phptemplate_imagecache($presetname, $path, $alt = '', $title = '', $att
  *
  * Special care is taken to make this work with the possible combinations of
  * Clean URLs and public/private downloads. For example, when Clean URLs are not
- * available an URL withhttp://www.test.d6/sites/localhost/files/imagecache/test/Macchinine%20voto.png query should be returned, like
+ * available an URL with query should be returned, like
  * http://example.com/?q=files/imagecache/foo.jpg, so that imagecache is able
  * intercept the request for this file.
  *
@@ -268,7 +268,7 @@ function phptemplate_imagecache($presetname, $path, $alt = '', $title = '', $att
  *
  * @param $presetname
  * @param $filepath
- *   String specifying thttp://www.test.d6/sites/localhost/files/imagecache/test/Macchinine%20voto.pnghe path to the image file.
+ *   String specifying the path to the image file.
  * @param $bypass_browser_cache
  *   A Boolean indicating that the URL for the image should be distinct so that
  *   the visitors browser will not be able to use a previously cached version.
