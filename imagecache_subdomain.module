@@ -133,7 +133,7 @@ function imagecache_subdomain_config_form_validate($form, &$form_state) {
       if ($form_state['values']['enable_' . $i]) {
         $uri = $form_state['values']['uri_'    . $i];
         if (!preg_match("/^http(s)?:\/\/([a-z0-9][-.a-z0-9]+)((\.[a-z]{2,4}))$/", $uri)) {
-          form_set_error('uri_'    . $i, t("Is not valid URI, please remember don't tralling slash."));
+          form_set_error('uri_'    . $i, t("Is not a valid URI. Please include http:// prefix, and don't add tralling slash. E.g. : http://image.mysite.tdl"));
         }
       }
 
